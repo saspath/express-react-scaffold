@@ -10,7 +10,7 @@ export default class extends React.Component {
         return (
           <div>
             <h1>Your JS-Scaffold is up and running</h1>
-            <div>No go out and make something!</div>
+            <div>Now go out and make something!</div>
           </div>
         )
     }
