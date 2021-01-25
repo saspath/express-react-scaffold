@@ -1,4 +1,4 @@
 {
   "cdnRoot": null,
-  "dockerTag": "js-scaffold/default"
+  "dockerTag": "express-react-app/default"
 }

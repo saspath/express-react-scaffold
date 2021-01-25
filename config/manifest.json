@@ -1,0 +1,16 @@
+[
+  "./webpack.config.prod.js",
+  "./webpack.config.dev.js",
+  "package.json",
+  "Dockerfile",
+  "Dockerfile.dev",
+  "docker-compose.yml",
+  ".gitignore",
+  "./server/index.js",
+  "./scripts/build-container.js",
+  "./config/build.json",
+  "./client/src/index.html",
+  "./client/src/index.js",
+  "./client/src/components/app.js",
+  "./client/src/components/app.css"
+]
