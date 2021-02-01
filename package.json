@@ -1,6 +1,6 @@
 {
   "name": "@janrevis/express-react-scaffold",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -17,11 +17,12 @@
     "start": "node server",
     "build": "npm run build-client && npm run build-server",
     "build-client": "npx webpack --config ./webpack.config.prod.js",
-    "build-server": "node ./scripts/build-container",
+    "build-server": "node ./scripts/build-image",
     "clean": "rm -rf client/dist",
-    "dev-server": "docker-compose up --build",
+    "dev-server": "nodemon ./server/index.js --watch ./server",
     "dev-client": "npx webpack --config=./webpack.config.dev.js --watch",
-    "dev": "docker-compose up"
+    "dev": "docker-compose up",
+    "fresh-dev": "docker-compose up --build"
   },
   "author": "jrevis",
   "license": "ISC",

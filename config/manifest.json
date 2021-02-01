@@ -5,7 +5,6 @@
   "Dockerfile",
   "Dockerfile.dev",
   "docker-compose.yml",
-  ".gitignore",
   "./server/index.js",
   "./scripts/build-container.js",
   "./config/build.json",

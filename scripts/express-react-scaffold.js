@@ -18,6 +18,10 @@ try {
   updatePackageJson(projectPath);
   execSync('git init');
   execSync('npm install', { stdio: 'inherit' });
+  fs.writeFileSync(
+    `${projectPath}/.gitignore`,
+    Buffer.from("/node_modules\n/client/dist\n"),
+    'utf-8');
 } finally {
   process.chdir(cwd);
 }

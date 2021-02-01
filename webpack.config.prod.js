@@ -1,8 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 var WebpackMd5Hash = require('webpack-md5-hash');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const buildConfig = require("./config/build.json");
-const publicPath =  buildConfig.cdnRoot || '';
+
+let config;
+try {
+  config = require('./config/build.json')
+  config.cdnPrefix = config.cdnPrefix.indexOf('$') === 0 ?
+    process.env[config.cdnPrefix.substring(1)] :
+    config.cdnPrefix || "";
+} catch (err) {
+  config = { cdnPrefix: "" };
+}
+
+const publicPath =  config.cdnPrefix || '';
 
 module.exports = {
   mode: 'production',
