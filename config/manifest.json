@@ -6,7 +6,7 @@
   "Dockerfile.dev",
   "docker-compose.yml",
   "./server/index.js",
-  "./scripts/build-container.js",
+  "./scripts/build-image.js",
   "./config/build.json",
   "./client/src/index.html",
   "./client/src/index.js",
