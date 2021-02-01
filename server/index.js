@@ -22,10 +22,8 @@ if (process.env.NODE_ENV === 'development') {
 
 exists(staticRoot).then(exists => {
   if (exists) {
-    console.log('static dir exists ' + staticRoot)
+    console.log(`static assets directory located at ${staticRoot}`)
     server.use(express.static(staticRoot));
-  } else {
-    console.log('does not exist ' + staticRoot);
   }
 })
 

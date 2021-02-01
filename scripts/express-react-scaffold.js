@@ -13,15 +13,19 @@ const cwd = process.cwd();
 
 try {
   const projectPath = validateProjectTarget();
+  console.log('generating project files.')
   copyProjectFiles(projectPath);
   process.chdir(projectPath);
   updatePackageJson(projectPath);
+  console.log('initializing git and installing packages.')
   execSync('git init');
   execSync('npm install', { stdio: 'inherit' });
+  //.gitignore is not installed with package so write manually
   fs.writeFileSync(
     `${projectPath}/.gitignore`,
     Buffer.from("/node_modules\n/client/dist\n"),
     'utf-8');
+  console.log(`scaffolding is completed, go to ${projectPath} to get started.`)
 } finally {
   process.chdir(cwd);
 }
@@ -40,6 +44,7 @@ function validateProjectTarget() {
     fs.mkdirSync(projectPath);
   }
 
+  console.log(`checking ${projectPath} for conflicting files ...`)
   const conflicts = manifest.filter(m => fs.existsSync(path.resolve(projectPath, m)));
   if (conflicts.length > 0) {
     console.log("The project could not be scaffolded due to the following conflicts:");
@@ -47,6 +52,7 @@ function validateProjectTarget() {
     console.log('remove the conflicting files or use a different target directory');
     process.exit();
   }
+  console.log('no conflicts identified')
 
   return projectPath;
 }
