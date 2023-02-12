@@ -10,6 +10,6 @@ COPY . .
 RUN echo runner $CMD_RUNNER
 RUN npm install
 
-EXPOSE 8099
+EXPOSE 3000
 
 CMD ["node", "./server"]
